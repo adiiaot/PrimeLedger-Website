@@ -1,0 +1,62 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+.card {
+  @apply bg-white dark:bg-slate-800/80 shadow-sm dark:shadow-none dark:ring-1 dark:ring-white/5 rounded-xl p-6
+         hover:shadow-md dark:hover:ring-gold-500/20 transition-all duration-200;
+}
+
+.card-accent {
+  @apply bg-gradient-to-br from-gold-500 to-emerald-500 rounded-xl p-6 text-white shadow-md;
+}
+
+.btn-primary {
+  @apply bg-gradient-to-r from-gold-500 to-emerald-500 text-white font-semibold rounded-lg px-6 py-2.5 shadow-sm
+         hover:shadow-md hover:from-gold-600 hover:to-emerald-600 transition-all duration-200 active:scale-[0.98];
+}
+
+.btn-secondary {
+  @apply border border-slate-300 dark:border-slate-600 text-slate-700 dark:text-slate-300 font-medium rounded-lg px-6 py-2.5
+         hover:bg-slate-50 dark:hover:bg-slate-800 transition-all duration-200;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #1e293b;
+}
+::-webkit-scrollbar-thumb {
+  background: #EAB308;
+  border-radius: 4px;
+}
+
+input, textarea, select {
+  outline: none;
+  transition: border-color 0.3s;
+}
+input:focus, textarea:focus, select:focus {
+  @apply border-gold-500;
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}

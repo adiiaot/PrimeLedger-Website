@@ -1,0 +1,250 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum UserRole {
+  USER
+  ADMIN
+}
+
+enum UserStatus {
+  ACTIVE
+  PENDING
+  SUSPENDED
+  BANNED
+}
+
+enum PaymentStatus {
+  PENDING
+  APPROVED
+  REJECTED
+}
+
+enum InvestmentStatus {
+  RUNNING
+  COMPLETED
+  CANCELLED
+}
+
+enum WithdrawalStatus {
+  PENDING
+  APPROVED
+  PAID
+  REJECTED
+}
+
+enum TransactionType {
+  INVESTMENT
+  PROFIT
+  WITHDRAWAL
+  ADJUSTMENT
+}
+
+enum TransactionStatus {
+  PENDING
+  COMPLETED
+  FAILED
+}
+
+model User {
+  id            String     @id @default(cuid())
+  userCode      String     @unique
+  fullName      String
+  email         String     @unique
+  passwordHash  String
+  role          UserRole   @default(USER)
+  status        UserStatus @default(PENDING)
+  selectedPlan  String?
+  paidAmount    Float?
+  activationCode        String?
+  accountActivated      Boolean  @default(false)
+  lastLogin     DateTime?
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+
+  bankName      String @default("")
+  accountNumber String @default("")
+  accountHolder String @default("")
+  phone         String @default("")
+
+  passwordResetToken     String?
+  passwordResetExpiresAt DateTime?
+
+  referredBy         String?
+  claimStreak        Int      @default(0)
+  lastClaimDate      DateTime?
+  lastBonusMilestone Int      @default(0)
+  walletBalance      Float    @default(0)
+  lastRedeemedAt     DateTime?
+
+  investments  Investment[]
+  payments     Payment[]
+  withdrawals  Withdrawal[]
+  transactions Transaction[]
+  reads        ReadChangelog[]
+  tickets      SupportTicket[]
+
+  @@map("users")
+}
+
+model ActivationCode {
+  id        String   @id @default(cuid())
+  code      String   @unique
+  plan      String
+  amount    Float
+  used      Boolean  @default(false)
+  usedBy    String?
+  usedAt    DateTime?
+  createdAt DateTime @default(now())
+
+  @@map("activation_codes")
+}
+
+model Payment {
+  id                  String        @id @default(cuid())
+  paymentReference    String        @unique
+  userId              String
+  selectedPlan        String
+  amount              Float
+  senderAccountName   String        @default("")
+  senderBank          String        @default("")
+  transactionReference String       @default("")
+  status              PaymentStatus @default(PENDING)
+  rejectionReason     String?
+  submittedAt         DateTime      @default(now())
+  reviewedAt          DateTime?
+  reviewedBy          String?
+
+  user User @relation(fields: [userId], references: [id])
+  investment Investment?
+
+  @@map("payments")
+}
+
+model InvestmentPlan {
+  id          String   @id @default(cuid())
+  name        String
+  amount      Float
+  description String   @default("")
+  duration    Int      @default(30)
+  earnings    Float    @default(0)
+  active      Boolean  @default(true)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  investments Investment[]
+
+  @@map("investment_plans")
+}
+
+model Investment {
+  id             String           @id @default(cuid())
+  userId         String
+  paymentId      String?          @unique
+  planId         String
+  principal      Float
+  interestRate   Float
+  expectedProfit Float
+  startDate      DateTime         @default(now())
+  endDate        DateTime?
+  status         InvestmentStatus @default(RUNNING)
+  createdAt      DateTime         @default(now())
+  updatedAt      DateTime         @updatedAt
+
+  user    User           @relation(fields: [userId], references: [id])
+  payment Payment?       @relation(fields: [paymentId], references: [id])
+  plan    InvestmentPlan @relation(fields: [planId], references: [id])
+
+  @@map("investments")
+}
+
+model Withdrawal {
+  id            String           @id @default(cuid())
+  userId        String
+  amount        Float
+  bankName      String
+  accountName   String
+  accountNumber String
+  status        WithdrawalStatus @default(PENDING)
+  rejectionReason String?
+  createdAt     DateTime         @default(now())
+  updatedAt     DateTime         @updatedAt
+
+  user User @relation(fields: [userId], references: [id])
+
+  @@map("withdrawals")
+}
+
+model Transaction {
+  id        String            @id @default(cuid())
+  userId    String
+  type      TransactionType
+  amount    Float
+  status    TransactionStatus @default(PENDING)
+  reference String            @default("")
+  description String          @default("")
+  createdAt DateTime           @default(now())
+
+  user User @relation(fields: [userId], references: [id])
+
+  @@map("transactions")
+}
+
+model AdminSetting {
+  id             String    @id @default("default")
+  bankName       String    @default("PAYSTACK TITAN")
+  accountName    String    @default("Bamboosystems")
+  accountNumber  String    @default("9601118751")
+  promoStartedAt DateTime?
+  updatedAt      DateTime  @updatedAt
+
+  @@map("admin_settings")
+}
+
+model Changelog {
+  id        String   @id @default(cuid())
+  title     String
+  body      String
+  version   String?
+  active    Boolean  @default(true)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  reads ReadChangelog[]
+
+  @@map("changelogs")
+}
+
+model ReadChangelog {
+  id          String   @id @default(cuid())
+  userId      String
+  changelogId String
+  readAt      DateTime @default(now())
+
+  user      User      @relation(fields: [userId], references: [id])
+  changelog Changelog @relation(fields: [changelogId], references: [id])
+
+  @@unique([userId, changelogId])
+  @@map("read_changelogs")
+}
+
+model SupportTicket {
+  id            String   @id @default(cuid())
+  userId        String
+  category      String
+  subject       String
+  message       String
+  status        String   @default("OPEN")
+  githubIssueUrl String?
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+
+  user User @relation(fields: [userId], references: [id])
+
+  @@map("support_tickets")
+}
