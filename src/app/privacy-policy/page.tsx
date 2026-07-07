@@ -11,10 +11,7 @@ export default function PrivacyPage() {
       <Navbar />
       <div className="max-w-3xl mx-auto px-4 pt-32 pb-20">
         <div className="text-center mb-12 animate-fade-in">
-          <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-gradient-to-r from-gold-500/10 to-emerald-500/10 rounded-full border border-gold-200 dark:border-gold-800 mb-4">
-            <span className="w-2 h-2 bg-gradient-to-r from-gold-500 to-emerald-500 rounded-full" />
-            <span className="text-gold-700 dark:text-gold-300 text-xs sm:text-sm font-semibold">Privacy</span>
-          </div>
+          <p className="text-gold-600 dark:text-gold-400 text-xs font-bold uppercase tracking-widest mb-3">Privacy</p>
           <h1 className="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white mb-4 tracking-tight">Privacy Policy</h1>
           <p className="text-slate-500 dark:text-slate-400">How we handle your information</p>
         </div>

@@ -12,11 +12,11 @@ export default function AdminPlansPage() {
       <div className="grid sm:grid-cols-3 gap-4 sm:gap-6">
         {plans.map(plan => (
           <div key={plan.key} className="card text-center relative">
-            <div className="w-12 h-12 bg-gradient-to-br from-gold-500 to-emerald-500 rounded-xl flex items-center justify-center mx-auto mb-3 shadow-sm">
+            <div className="w-12 h-12 bg-gold-500 rounded-xl flex items-center justify-center mx-auto mb-3 shadow-sm">
               <FaStar size={20} className="text-white" />
             </div>
             <h3 className="font-bold text-slate-900 dark:text-white text-base sm:text-lg">{plan.name}</h3>
-            <p className="text-2xl sm:text-3xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-gold-500 to-emerald-500 my-2">
+            <p className="text-2xl sm:text-3xl font-extrabold text-gold-500 my-2">
               ${plan.amount.toFixed(2)}
             </p>
             <span className="text-xs text-slate-400 font-medium">Promo Price</span>

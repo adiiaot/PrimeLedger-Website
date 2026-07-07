@@ -7,7 +7,7 @@ import Logo from '@/components/Logo'
 import { useAuth } from '@/context/AuthContext'
 import { DAILY_TASK_REWARD } from '@/lib/constants'
 import { HiShieldCheck, HiChartBar, HiCash } from 'react-icons/hi'
-import { FaCoins, FaRocket, FaHandshake, FaChartLine, FaUserCheck, FaStar } from 'react-icons/fa'
+import { FaCoins, FaRocket, FaHandshake, FaChartLine, FaUserCheck, FaStar, FaArrowRight } from 'react-icons/fa'
 
 const features = [
   { icon: <HiShieldCheck size={24} />, title: 'Secure Platform', desc: 'Enterprise-grade security to protect your deposits and personal data.' },
@@ -19,9 +19,15 @@ const features = [
 ]
 
 const steps = [
-  { num: '01', icon: <FaCoins size={20} />, title: 'FUND YOUR ACCOUNT', desc: 'Deposit via bank transfer or crypto to start your journey.' },
-  { num: '02', icon: <HiChartBar size={20} />, title: 'INVEST IN A PLAN', desc: 'Choose a plan that suits your goals and start earning daily.' },
-  { num: '03', icon: <FaRocket size={20} />, title: 'EARN & WITHDRAW', desc: 'Complete daily tasks, earn rewards, and withdraw your profits.' },
+  { num: '01', icon: <FaCoins size={20} />, title: 'Fund Your Account', desc: 'Deposit via crypto to start your journey.' },
+  { num: '02', icon: <HiChartBar size={20} />, title: 'Invest in a Plan', desc: 'Choose a plan that suits your goals and start earning daily.' },
+  { num: '03', icon: <FaRocket size={20} />, title: 'Earn & Withdraw', desc: 'Complete daily tasks, earn rewards, and withdraw your profits.' },
+]
+
+const plans = [
+  { name: 'Starter Plan', amount: 30, key: 'starter', desc: 'Perfect for beginners.' },
+  { name: 'Growth Plan', amount: 50, key: 'growth', desc: 'Most popular plan.' },
+  { name: 'Premium Plan', amount: 100, key: 'premium', desc: 'Maximum potential.' },
 ]
 
 export default function HomePage() {
@@ -57,13 +63,13 @@ export default function HomePage() {
         <div className="relative w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-20">
           <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
             <div className="space-y-6 sm:space-y-8 animate-fade-in">
-              <div className="inline-flex items-center gap-2 px-3 py-1.5 sm:px-4 sm:py-2 bg-gradient-to-r from-gold-500/10 to-emerald-500/10 dark:from-gold-400/10 dark:to-emerald-400/10 rounded-full border border-gold-200 dark:border-gold-800">
-                <span className="w-2 h-2 bg-gradient-to-r from-gold-500 to-emerald-500 rounded-full" />
+              <div className="inline-flex items-center gap-2 px-3 py-1.5 sm:px-4 sm:py-2 bg-gold-500/10 rounded-full border border-gold-200 dark:border-gold-800">
+                <span className="w-2 h-2 bg-gold-500 rounded-full" />
                 <span className="text-gold-700 dark:text-gold-300 text-xs sm:text-sm font-semibold">PrimeLedger — Advanced Earning Platform</span>
               </div>
               <h1 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-extrabold text-slate-900 dark:text-white leading-tight tracking-tight">
                 Invest Smart,{' '}
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-gold-500 to-emerald-500">Earn Daily</span>
+                <span className="text-gold-500">Earn Daily</span>
               </h1>
               <p className="text-base sm:text-lg text-slate-500 dark:text-slate-400 max-w-lg leading-relaxed">
                 Join PrimeLedger and start earning daily rewards on your deposit. Fund your account, choose a plan, and grow your balance.
@@ -87,10 +93,10 @@ export default function HomePage() {
               </div>
             </div>
             <div className="hidden lg:flex justify-center relative">
-              <div className="w-80 h-80 xl:w-96 xl:h-96 rounded-full bg-gradient-to-r from-gold-500/20 to-emerald-500/20 blur-3xl absolute" />
+              <div className="w-80 h-80 xl:w-96 xl:h-96 rounded-full bg-gold-500/10 blur-3xl absolute" />
               <div className="relative w-72 h-72 xl:w-80 xl:h-80 rounded-full border-2 border-gold-500/30 flex items-center justify-center">
                 <div className="text-center">
-                  <div className="w-16 h-16 xl:w-20 xl:h-20 bg-gradient-to-br from-gold-500 to-emerald-500 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg">
+                  <div className="w-16 h-16 xl:w-20 xl:h-20 bg-gold-500 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg">
                     <FaChartLine size={28} className="text-white" />
                   </div>
                   <h3 className="text-2xl font-bold text-slate-900 dark:text-white">Start Investing</h3>
@@ -107,23 +113,19 @@ export default function HomePage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
             <div>
-              <div className="inline-flex items-center gap-2 px-3 py-1.5 sm:px-4 sm:py-2 bg-gradient-to-r from-gold-500/10 to-emerald-500/10 dark:from-gold-400/10 dark:to-emerald-400/10 rounded-full border border-gold-200 dark:border-gold-800 mb-4 sm:mb-6">
-                <span className="w-2 h-2 bg-gradient-to-r from-gold-500 to-emerald-500 rounded-full" />
-                <span className="text-gold-700 dark:text-gold-300 text-xs sm:text-sm font-semibold">About PrimeLedger</span>
-              </div>
+              <p className="text-gold-600 dark:text-gold-400 text-xs font-bold uppercase tracking-widest mb-3">About PrimeLedger</p>
               <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white mb-4 sm:mb-6 tracking-tight">
-                The <span className="text-transparent bg-clip-text bg-gradient-to-r from-gold-500 to-emerald-500">Future</span> of Smart Earning
+                The <span className="text-gold-500">Future</span> of Smart Earning
               </h2>
               <p className="text-slate-500 dark:text-slate-400 mb-6 leading-relaxed text-sm sm:text-base">
                 PrimeLedger is an earnings platform that connects members with curated opportunities. We provide a seamless experience for users to earn daily rewards.
               </p>
-              <div className="bg-gradient-to-r from-gold-500/5 to-emerald-500/5 dark:from-gold-400/5 dark:to-emerald-400/5 rounded-xl p-4 sm:p-6 border border-gold-200 dark:border-gold-800">
+              <div className="bg-slate-50 dark:bg-slate-800/50 rounded-xl p-4 sm:p-6 border border-slate-200 dark:border-slate-700">
                 <p className="text-slate-600 dark:text-slate-300 text-sm leading-relaxed">PrimeLedger is a premium fintech platform built for modern investors. We are committed to transparency, security, and delivering value.</p>
               </div>
             </div>
             <div className="relative">
-              <div className="w-full aspect-square rounded-3xl bg-gradient-to-r from-gold-500/10 to-emerald-500/10 absolute" />
-              <div className="relative bg-gradient-to-r from-gold-500/5 to-emerald-500/5 dark:from-gold-400/5 dark:to-emerald-400/5 rounded-3xl p-6 sm:p-8 border border-gold-200 dark:border-gold-800">
+              <div className="relative bg-slate-50 dark:bg-slate-800/50 rounded-3xl p-6 sm:p-8 border border-slate-200 dark:border-slate-700">
                 <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-4 sm:mb-6">Trusted Earnings Platform</h3>
                 <p className="text-slate-500 dark:text-slate-400 text-sm sm:text-base">We are committed to transparency, security, and delivering value to every user who joins us on this journey.</p>
               </div>
@@ -136,26 +138,23 @@ export default function HomePage() {
       <section id="plans" ref={setRef(2)} data-index={2} className={`py-16 sm:py-24 bg-white/50 dark:bg-slate-900/50 transition-all duration-700 ${visible.includes(2) ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-10 sm:mb-16">
-            <div className="inline-flex items-center gap-2 px-3 py-1.5 sm:px-4 sm:py-2 bg-gradient-to-r from-gold-500/10 to-emerald-500/10 dark:from-gold-400/10 dark:to-emerald-400/10 rounded-full border border-gold-200 dark:border-gold-800 mb-4">
-              <span className="w-2 h-2 bg-gradient-to-r from-gold-500 to-emerald-500 rounded-full" />
-              <span className="text-gold-700 dark:text-gold-300 text-xs sm:text-sm font-semibold">Investment Plans</span>
-            </div>
+            <p className="text-gold-600 dark:text-gold-400 text-xs font-bold uppercase tracking-widest mb-3">Investment Plans</p>
             <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white mb-4 tracking-tight">
-              Choose Your <span className="text-transparent bg-clip-text bg-gradient-to-r from-gold-500 to-emerald-500">Investment Plan</span>
+              Choose Your <span className="text-gold-500">Investment Plan</span>
             </h2>
             <p className="text-slate-500 dark:text-slate-400 max-w-2xl mx-auto text-sm sm:text-base">Select from our carefully designed investment plans and start earning daily rewards.</p>
           </div>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
-            {[{name:'Starter Plan',amount:30,key:'starter',desc:'Perfect for beginners.'},{name:'Growth Plan',amount:50,key:'growth',desc:'Most popular plan.'},{name:'Premium Plan',amount:100,key:'premium',desc:'Maximum potential.'}].map((plan, i) => (
+            {plans.map((plan, i) => (
               <div key={plan.key} className="card text-center relative">
-                <div className={`absolute -top-4 left-1/2 -translate-x-1/2 px-4 py-1 bg-gradient-to-r from-gold-500 to-emerald-500 text-white text-xs font-bold rounded-full ${i === 1 ? '' : 'opacity-0'}`}>
+                <div className={`absolute -top-4 left-1/2 -translate-x-1/2 px-4 py-1 bg-gold-500 text-white text-xs font-bold rounded-full ${i === 1 ? '' : 'opacity-0'}`}>
                   Most Popular
                 </div>
-                <div className="w-14 h-14 bg-gradient-to-br from-gold-500 to-emerald-500 rounded-2xl flex items-center justify-center mx-auto mb-4 sm:mb-6 shadow-sm">
+                <div className="w-14 h-14 bg-gold-500 rounded-2xl flex items-center justify-center mx-auto mb-4 sm:mb-6 shadow-sm">
                   <FaCoins size={24} className="text-white" />
                 </div>
                 <h3 className="text-lg sm:text-xl font-bold text-slate-900 dark:text-white mb-2">{plan.name}</h3>
-                <p className="text-2xl sm:text-3xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-gold-500 to-emerald-500 mb-2">${plan.amount}</p>
+                <p className="text-2xl sm:text-3xl font-extrabold text-gold-500 mb-2">${plan.amount}</p>
                 <p className="text-slate-500 dark:text-slate-400 text-xs sm:text-sm mb-4 sm:mb-6">{plan.desc}</p>
                 <Link href="/login">
                   <button className="btn-primary w-full text-center text-sm sm:text-base">Invest Now</button>
@@ -170,19 +169,16 @@ export default function HomePage() {
       <section id="how-it-works" ref={setRef(3)} data-index={3} className={`py-16 sm:py-24 transition-all duration-700 ${visible.includes(3) ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-10 sm:mb-16">
-            <div className="inline-flex items-center gap-2 px-3 py-1.5 sm:px-4 sm:py-2 bg-gradient-to-r from-gold-500/10 to-emerald-500/10 dark:from-gold-400/10 dark:to-emerald-400/10 rounded-full border border-gold-200 dark:border-gold-800 mb-4">
-              <span className="w-2 h-2 bg-gradient-to-r from-gold-500 to-emerald-500 rounded-full" />
-              <span className="text-gold-700 dark:text-gold-300 text-xs sm:text-sm font-semibold">How It Works</span>
-            </div>
+            <p className="text-gold-600 dark:text-gold-400 text-xs font-bold uppercase tracking-widest mb-3">How It Works</p>
             <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white mb-4 tracking-tight">
-              Start Investing in <span className="text-transparent bg-clip-text bg-gradient-to-r from-gold-500 to-emerald-500">3 Simple Steps</span>
+              Start Investing in <span className="text-gold-500">3 Simple Steps</span>
             </h2>
             <p className="text-slate-500 dark:text-slate-400 max-w-2xl mx-auto text-sm sm:text-base">Getting started with PrimeLedger is easy. Follow these simple steps.</p>
           </div>
           <div className="grid sm:grid-cols-3 gap-4 sm:gap-6">
             {steps.map((step, i) => (
               <div key={i} className="card text-center">
-                <div className="w-12 h-12 sm:w-14 sm:h-14 bg-gradient-to-br from-gold-500 to-emerald-500 rounded-full flex items-center justify-center mx-auto mb-3 sm:mb-4 text-white">{step.icon}</div>
+                <div className="w-12 h-12 sm:w-14 sm:h-14 bg-gold-500 rounded-full flex items-center justify-center mx-auto mb-3 sm:mb-4 text-white">{step.icon}</div>
                 <h3 className="text-base sm:text-lg font-bold text-slate-900 dark:text-white mb-2">{step.title}</h3>
                 <p className="text-slate-500 dark:text-slate-400 text-xs sm:text-sm">{step.desc}</p>
               </div>
@@ -195,17 +191,14 @@ export default function HomePage() {
       <section ref={setRef(4)} data-index={4} className={`py-16 sm:py-24 bg-white/50 dark:bg-slate-900/50 transition-all duration-700 ${visible.includes(4) ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-10 sm:mb-16">
-            <div className="inline-flex items-center gap-2 px-3 py-1.5 sm:px-4 sm:py-2 bg-gradient-to-r from-gold-500/10 to-emerald-500/10 dark:from-gold-400/10 dark:to-emerald-400/10 rounded-full border border-gold-200 dark:border-gold-800 mb-4">
-              <span className="w-2 h-2 bg-gradient-to-r from-gold-500 to-emerald-500 rounded-full" />
-              <span className="text-gold-700 dark:text-gold-300 text-xs sm:text-sm font-semibold">Why PrimeLedger</span>
-            </div>
-            <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white mb-4 tracking-tight">Built for <span className="text-transparent bg-clip-text bg-gradient-to-r from-gold-500 to-emerald-500">Investors</span></h2>
+            <p className="text-gold-600 dark:text-gold-400 text-xs font-bold uppercase tracking-widest mb-3">Why PrimeLedger</p>
+            <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white mb-4 tracking-tight">Built for <span className="text-gold-500">Investors</span></h2>
             <p className="text-slate-500 dark:text-slate-400 max-w-2xl mx-auto text-sm sm:text-base">Premium technology meets carefully designed plans for a great earning experience.</p>
           </div>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
             {features.map((f, i) => (
               <div key={i} className="card">
-                <div className="w-12 h-12 bg-gradient-to-br from-gold-500 to-emerald-500 rounded-xl flex items-center justify-center mb-3 sm:mb-4 text-white">{f.icon}</div>
+                <div className="w-12 h-12 bg-gold-500 rounded-xl flex items-center justify-center mb-3 sm:mb-4 text-white">{f.icon}</div>
                 <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2">{f.title}</h3>
                 <p className="text-slate-500 dark:text-slate-400 text-sm">{f.desc}</p>
               </div>
@@ -217,7 +210,7 @@ export default function HomePage() {
       {/* CTA */}
       <section className="py-16 sm:py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="bg-gradient-to-br from-gold-500 to-emerald-500 rounded-2xl sm:rounded-3xl p-8 sm:p-12 text-center relative overflow-hidden">
+          <div className="bg-gold-500 rounded-2xl sm:rounded-3xl p-8 sm:p-12 text-center relative overflow-hidden">
             <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(255,255,255,0.1),transparent_70%)]" />
             <div className="relative">
               <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-white mb-4">Ready to Start Investing?</h2>

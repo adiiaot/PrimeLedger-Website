@@ -4,12 +4,12 @@ import Link from 'next/link'
 import { FaCrown, FaCheckCircle } from 'react-icons/fa'
 
 const plans = [
-  { name: 'Starter', minDeposit: 10, maxDeposit: 799, profit: '5%', duration: '3 days', referralBonus: '5%', color: 'from-gold-400/20 to-emerald-400/20', border: 'border-gold-400/30' },
-  { name: 'Basic', minDeposit: 800, maxDeposit: 4999, profit: '10%', duration: '7 days', referralBonus: '10%', color: 'from-gold-500/20 to-emerald-500/20', border: 'border-gold-500/30' },
-  { name: 'Pro', minDeposit: 5000, maxDeposit: 24999, profit: '15%', duration: '14 days', referralBonus: '15%', color: 'from-gold-500/20 to-emerald-500/20', border: 'border-gold-500/30' },
-  { name: 'Elite', minDeposit: 25000, maxDeposit: 99999, profit: '20%', duration: '21 days', referralBonus: '20%', color: 'from-gold-500/20 to-emerald-500/20', border: 'border-gold-500/30' },
-  { name: 'Mega', minDeposit: 100000, maxDeposit: 499999, profit: '30%', duration: '30 days', referralBonus: '25%', color: 'from-gold-600/20 to-emerald-600/20', border: 'border-gold-600/30' },
-  { name: 'Premium', minDeposit: 500000, maxDeposit: 1000000, profit: '50%', duration: '45 days', referralBonus: '30%', color: 'from-gold-600/20 to-emerald-600/20', border: 'border-gold-600/30' },
+  { name: 'Starter', minDeposit: 10, maxDeposit: 799, profit: '5%', duration: '3 days', referralBonus: '5%' },
+  { name: 'Basic', minDeposit: 800, maxDeposit: 4999, profit: '10%', duration: '7 days', referralBonus: '10%' },
+  { name: 'Pro', minDeposit: 5000, maxDeposit: 24999, profit: '15%', duration: '14 days', referralBonus: '15%' },
+  { name: 'Elite', minDeposit: 25000, maxDeposit: 99999, profit: '20%', duration: '21 days', referralBonus: '20%' },
+  { name: 'Mega', minDeposit: 100000, maxDeposit: 499999, profit: '30%', duration: '30 days', referralBonus: '25%' },
+  { name: 'Premium', minDeposit: 500000, maxDeposit: 1000000, profit: '50%', duration: '45 days', referralBonus: '30%' },
 ]
 
 export default function MembershipPage() {
@@ -19,7 +19,7 @@ export default function MembershipPage() {
 
       <div className="grid gap-4 sm:gap-6 sm:grid-cols-2 lg:grid-cols-3">
         {plans.map(p => (
-          <div key={p.name} className={`card border-2 ${p.border} bg-gradient-to-b ${p.color}`}>
+          <div key={p.name} className={`card border-2 border-gold-500/20`}>
             <div className="flex items-center gap-2 mb-3">
               <FaCrown className="text-gold-500" size={18} />
               <h3 className="text-lg font-extrabold text-slate-900 dark:text-white">{p.name}</h3>

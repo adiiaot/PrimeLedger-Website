@@ -22,7 +22,7 @@ export default function ProfilePage() {
 
       <form onSubmit={handleSave} className="card space-y-4 sm:space-y-5">
         <div className="flex items-center gap-4 pb-4 border-b border-slate-200 dark:border-slate-700">
-          <div className="w-14 h-14 rounded-full bg-gradient-to-br from-gold-500 to-emerald-500 flex items-center justify-center text-white font-extrabold text-xl shrink-0">
+          <div className="w-14 h-14 rounded-full bg-gold-500 flex items-center justify-center text-white font-extrabold text-xl shrink-0">
             {name.charAt(0).toUpperCase()}
           </div>
           <div>

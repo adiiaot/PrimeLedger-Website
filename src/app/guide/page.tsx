@@ -76,12 +76,9 @@ export default function GuidePage() {
       <Navbar />
       <div className="max-w-4xl mx-auto px-4 pt-32 pb-20">
         <div className="text-center mb-12 animate-fade-in">
-          <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-gradient-to-r from-gold-500/10 to-emerald-500/10 rounded-full border border-gold-200 dark:border-gold-800 mb-4">
-            <span className="w-2 h-2 bg-gradient-to-r from-gold-500 to-emerald-500 rounded-full" />
-            <span className="text-gold-700 dark:text-gold-300 text-xs sm:text-sm font-semibold">Guide</span>
-          </div>
+          <p className="text-gold-600 dark:text-gold-400 text-xs font-bold uppercase tracking-widest mb-3">Guide</p>
           <h1 className="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white mb-4 tracking-tight">
-            How to Use <span className="text-transparent bg-clip-text bg-gradient-to-r from-gold-500 to-emerald-500">PrimeLedger</span>
+            How to Use <span className="text-gold-500">PrimeLedger</span>
           </h1>
           <p className="text-slate-500 dark:text-slate-400">A complete walkthrough of all platform features</p>
         </div>
@@ -90,7 +87,7 @@ export default function GuidePage() {
           {sections.map((section, i) => (
             <div key={i} className="card">
               <div className="flex items-center gap-3 mb-4 pb-3 border-b border-slate-100 dark:border-slate-700/50">
-                <div className="w-10 h-10 bg-gradient-to-br from-gold-500 to-emerald-500 rounded-xl flex items-center justify-center text-white shrink-0">
+                <div className="w-10 h-10 bg-gold-500 rounded-xl flex items-center justify-center text-white shrink-0">
                   {section.icon}
                 </div>
                 <h2 className="text-lg sm:text-xl font-bold text-slate-900 dark:text-white">{section.title}</h2>
@@ -98,7 +95,7 @@ export default function GuidePage() {
               <ol className="space-y-2">
                 {section.items.map((item, j) => (
                   <li key={j} className="flex items-start gap-3 text-sm text-slate-600 dark:text-slate-400">
-                    <span className="w-5 h-5 rounded-full bg-gradient-to-br from-gold-500 to-emerald-500 text-white text-xs flex items-center justify-center font-bold shrink-0 mt-0.5">{j + 1}</span>
+                    <span className="w-5 h-5 rounded-full bg-gold-500 text-white text-xs flex items-center justify-center font-bold shrink-0 mt-0.5">{j + 1}</span>
                     <span className="leading-relaxed">{item}</span>
                   </li>
                 ))}

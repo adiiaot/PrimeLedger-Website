@@ -39,7 +39,7 @@ export default function RegisterPage() {
           </form>
           <div className="mt-6">
             <div className="relative mb-6"><div className="absolute inset-0 flex items-center"><div className="w-full border-t border-slate-300 dark:border-slate-600" /></div><div className="relative flex justify-center text-xs"><span className="bg-white dark:bg-slate-800 px-2 text-slate-500 font-medium">or</span></div></div>
-            <button onClick={handleDemo} className="w-full min-h-[44px] py-3 bg-gradient-to-r from-gold-500 to-emerald-500 hover:from-gold-600 hover:to-emerald-600 text-white font-bold rounded-xl transition text-sm shadow-sm">Enter Demo Mode</button>
+            <button onClick={handleDemo} className="w-full min-h-[44px] py-3 bg-gold-500 hover:bg-gold-600 text-white font-bold rounded-xl transition text-sm shadow-sm">Enter Demo Mode</button>
             <p className="text-xs text-slate-400 text-center mt-2 font-medium">Instantly explore a fully populated demo</p>
           </div>
         </div>

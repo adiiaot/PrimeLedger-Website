@@ -6,12 +6,12 @@ export default function Logo({ size = 'md', showText = true }: { size?: 'sm' | '
 
   return (
     <Link href="/" className="flex items-center gap-2 shrink-0">
-      <div className={`${dims} bg-gradient-to-br from-gold-500 to-emerald-500 rounded-lg flex items-center justify-center shadow-sm`}>
+      <div className={`${dims} bg-gold-500 rounded-lg flex items-center justify-center shadow-sm`}>
         <span className="text-white font-bold text-xs">PL</span>
       </div>
       {showText && (
         <span className={`font-sans font-extrabold tracking-tight ${textSize} text-slate-900 dark:text-white`}>
-          Prime<span className="text-transparent bg-clip-text bg-gradient-to-r from-gold-500 to-emerald-500">Ledger</span>
+          Prime<span className="text-gold-500">Ledger</span>
         </span>
       )}
     </Link>

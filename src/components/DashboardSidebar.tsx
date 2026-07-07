@@ -51,10 +51,15 @@ export default function DashboardSidebar({ children }: { children: React.ReactNo
 
       <aside className={`fixed lg:static inset-y-0 left-0 z-50 w-64 bg-white dark:bg-slate-900/95 border-r border-slate-200 dark:border-white/10 transform transition-transform duration-300 ${open ? 'translate-x-0' : '-translate-x-full'} lg:translate-x-0 flex flex-col`}>
         <div className="p-6 border-b border-slate-200 dark:border-white/10">
-          <Logo />
-          <div className="mt-3 px-3 py-2 bg-gradient-to-r from-gold-500/10 to-emerald-500/10 dark:from-gold-400/10 dark:to-emerald-400/10 rounded-lg">
+          <div className="flex items-center justify-between">
+            <Logo />
+            <button className="lg:hidden text-slate-500 dark:text-slate-400 hover:text-slate-700 dark:hover:text-white p-1" onClick={() => setOpen(false)} aria-label="Close sidebar">
+              <HiX size={20} />
+            </button>
+          </div>
+          <div className="mt-3 px-3 py-2 bg-gold-500/10 rounded-lg">
             <p className="text-xs text-slate-500 dark:text-slate-400 font-medium">Wallet</p>
-            <p className="text-sm font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-gold-500 to-emerald-500">${balance.toFixed(2)}</p>
+            <p className="text-sm font-extrabold text-gold-500">${balance.toFixed(2)}</p>
           </div>
         </div>
 
@@ -66,7 +71,7 @@ export default function DashboardSidebar({ children }: { children: React.ReactNo
               <Link key={link.href} href={link.href} onClick={() => setOpen(false)}>
                 <div className={`flex items-center gap-3 px-4 py-2.5 rounded-lg transition ${
                   active
-                    ? 'bg-gradient-to-r from-gold-500/10 to-emerald-500/10 dark:from-gold-400/10 dark:to-emerald-400/10 border-l-2 border-gold-500 dark:border-gold-400 text-gold-700 dark:text-gold-300 font-semibold'
+                    ? 'bg-gold-500/10 border-l-2 border-gold-500 text-gold-700 dark:text-gold-300 font-semibold'
                     : 'text-slate-500 dark:text-slate-400 hover:text-slate-700 dark:hover:text-slate-200 hover:bg-slate-100 dark:hover:bg-white/5 font-medium'
                 }`}>
                   <Icon size={16} />
@@ -77,11 +82,7 @@ export default function DashboardSidebar({ children }: { children: React.ReactNo
           })}
         </nav>
 
-        <div className="p-4 border-t border-slate-200 dark:border-white/10 space-y-2">
-          <button onClick={toggle} className="flex items-center gap-3 px-4 py-3 text-slate-500 dark:text-slate-400 hover:text-gold-600 dark:hover:text-gold-400 rounded-lg hover:bg-slate-100 dark:hover:bg-white/5 transition w-full font-medium">
-            {theme === 'dark' ? <HiSun size={18} /> : <HiMoon size={18} />}
-            <span>{theme === 'dark' ? 'Light' : 'Dark'} Mode</span>
-          </button>
+        <div className="p-4 border-t border-slate-200 dark:border-white/10">
           <button onClick={logout}
             className="flex items-center gap-3 px-4 py-3 text-slate-500 dark:text-slate-400 hover:text-red-500 rounded-lg hover:bg-slate-100 dark:hover:bg-white/5 transition w-full font-medium">
             <HiLogout size={18} />
@@ -97,14 +98,17 @@ export default function DashboardSidebar({ children }: { children: React.ReactNo
               <HiMenu size={22} />
             </button>
             <div className="hidden lg:block" />
-            <div className="flex items-center gap-3">
+            <div className="flex items-center gap-2 sm:gap-3">
+              <button onClick={toggle} className="p-2 rounded-lg text-slate-500 dark:text-slate-400 hover:text-gold-600 dark:hover:text-gold-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition" title="Toggle theme">
+                {theme === 'dark' ? <HiSun size={20} /> : <HiMoon size={20} />}
+              </button>
               <div className="text-right hidden sm:block">
                 <p className="text-slate-900 dark:text-white font-semibold text-sm">{user?.fullName}</p>
                 {isAdmin ? <p className="text-gold-600 dark:text-gold-400 text-xs font-medium">Admin</p> : user?.selectedPlan && (
                   <span className="text-xs text-slate-500 dark:text-slate-400 font-medium">{user.selectedPlan}</span>
                 )}
               </div>
-              <div className="w-9 h-9 bg-gradient-to-br from-gold-500 to-emerald-500 rounded-full flex items-center justify-center shadow-sm shrink-0">
+              <div className="w-9 h-9 bg-gold-500 rounded-full flex items-center justify-center shadow-sm shrink-0">
                 <span className="text-white font-bold text-sm">{user?.fullName?.charAt(0) || 'U'}</span>
               </div>
             </div>

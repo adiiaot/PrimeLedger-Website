@@ -68,11 +68,11 @@ export default function DashboardPage() {
         <div className="card">
           <h3 className="text-base sm:text-lg font-bold text-slate-900 dark:text-white mb-3 sm:mb-4">Daily Task</h3>
           <div className="text-center py-4 sm:py-6">
-            <div className="w-14 h-14 sm:w-16 sm:h-16 bg-gradient-to-br from-gold-500 to-emerald-500 rounded-full flex items-center justify-center mx-auto mb-3 sm:mb-4 shadow-sm">
+            <div className="w-14 h-14 sm:w-16 sm:h-16 bg-gold-500 rounded-full flex items-center justify-center mx-auto mb-3 sm:mb-4 shadow-sm">
               <HiRefresh size={24} className="text-white" />
             </div>
             <p className="text-slate-500 dark:text-slate-400 text-sm mb-1 font-medium">Claim your daily reward</p>
-            <p className="text-xl sm:text-2xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-gold-500 to-emerald-500 mb-1">$30</p>
+            <p className="text-xl sm:text-2xl font-extrabold text-gold-500 mb-1">$30</p>
             <p className="text-xs text-slate-400 mb-3 sm:mb-4 font-medium">Streak: {data.claimStreak} days</p>
             <button onClick={handleClaim} disabled={claimed}
               className={`px-6 sm:px-8 py-2.5 sm:py-3 rounded-xl font-bold transition text-sm ${claimed ? 'bg-emerald-500 text-white cursor-not-allowed' : 'btn-primary'}`}>
@@ -85,13 +85,13 @@ export default function DashboardPage() {
         <div className="card">
           <h3 className="text-base sm:text-lg font-bold text-slate-900 dark:text-white mb-3 sm:mb-4">Quick Actions</h3>
           <div className="space-y-2 sm:space-y-3">
-            <Link href="/dashboard/deposit" className="flex items-center justify-between p-3 bg-gradient-to-r from-gold-500/5 to-emerald-500/5 dark:from-gold-400/5 dark:to-emerald-400/5 rounded-xl hover:from-gold-500/10 hover:to-emerald-500/10 transition">
+            <Link href="/dashboard/deposit" className="flex items-center justify-between p-3 bg-gold-500/5 rounded-xl hover:bg-gold-500/10 transition">
               <span className="flex items-center gap-3"><FaCoins className="text-gold-600 dark:text-gold-400 shrink-0" /><span className="text-sm font-semibold text-slate-700 dark:text-slate-300">Deposit Funds</span></span><HiArrowRight className="text-gold-600 dark:text-gold-400 shrink-0" />
             </Link>
-            <Link href="/dashboard/withdrawals" className="flex items-center justify-between p-3 bg-gradient-to-r from-gold-500/5 to-emerald-500/5 dark:from-gold-400/5 dark:to-emerald-400/5 rounded-xl hover:from-gold-500/10 hover:to-emerald-500/10 transition">
+            <Link href="/dashboard/withdrawals" className="flex items-center justify-between p-3 bg-gold-500/5 rounded-xl hover:bg-gold-500/10 transition">
               <span className="flex items-center gap-3"><HiCash className="text-gold-600 dark:text-gold-400 shrink-0" /><span className="text-sm font-semibold text-slate-700 dark:text-slate-300">Withdraw Funds</span></span><HiArrowRight className="text-gold-600 dark:text-gold-400 shrink-0" />
             </Link>
-            <Link href="/dashboard/referrals" className="flex items-center justify-between p-3 bg-gradient-to-r from-gold-500/5 to-emerald-500/5 dark:from-gold-400/5 dark:to-emerald-400/5 rounded-xl hover:from-gold-500/10 hover:to-emerald-500/10 transition">
+            <Link href="/dashboard/referrals" className="flex items-center justify-between p-3 bg-gold-500/5 rounded-xl hover:bg-gold-500/10 transition">
               <span className="flex items-center gap-3"><HiUserGroup className="text-gold-600 dark:text-gold-400 shrink-0" /><span className="text-sm font-semibold text-slate-700 dark:text-slate-300">Refer & Earn</span></span><HiArrowRight className="text-gold-600 dark:text-gold-400 shrink-0" />
             </Link>
           </div>

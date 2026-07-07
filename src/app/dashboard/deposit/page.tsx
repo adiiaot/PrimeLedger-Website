@@ -120,7 +120,7 @@ export default function DepositPage() {
           </form>
 
           {/* Info Card */}
-          <div className="card bg-gradient-to-r from-gold-500/5 to-emerald-500/5 border border-gold-500/20">
+          <div className="card bg-gold-500/5 border border-gold-500/20">
             <div className="flex items-start gap-3">
               <FaCoins className="text-gold-500 mt-0.5 shrink-0" size={16} />
               <div className="text-xs sm:text-sm text-slate-600 dark:text-slate-400">
