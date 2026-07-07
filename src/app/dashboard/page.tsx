@@ -3,15 +3,17 @@
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import { useAuth } from '@/context/AuthContext'
+import { useWallet } from '@/context/WalletContext'
 import { getDemoDashboardData, getDemoInvestments, DashboardData } from '@/lib/mock-data'
 import { HiCash, HiChartBar, HiUserGroup, HiArrowRight, HiRefresh } from 'react-icons/hi'
 import { FaCoins, FaCheckCircle } from 'react-icons/fa'
+import { CardSkeleton } from '@/components/Skeleton'
 
 export default function DashboardPage() {
   const { user } = useAuth()
+  const { balance, addBalance } = useWallet()
   const [data, setData] = useState<DashboardData | null>(null)
   const [claimed, setClaimed] = useState(false)
-  const [balance, setBalance] = useState(450)
 
   useEffect(() => {
     setData(getDemoDashboardData())
@@ -20,13 +22,14 @@ export default function DashboardPage() {
   const handleClaim = () => {
     if (claimed) return
     setClaimed(true)
-    const newBal = balance + 30
-    setBalance(newBal)
+    addBalance(30)
   }
 
   if (!data) return (
-    <div className="flex items-center justify-center min-h-[60vh]">
-      <div className="w-8 h-8 border-2 border-gold-500 border-t-transparent rounded-full animate-spin" />
+    <div className="space-y-4 sm:space-y-6 animate-fade-in w-full">
+      <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
+        {[1,2,3,4].map(i => <CardSkeleton key={i} />)}
+      </div>
     </div>
   )
 

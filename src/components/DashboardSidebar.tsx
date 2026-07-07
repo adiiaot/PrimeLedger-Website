@@ -5,6 +5,7 @@ import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { useAuth } from '@/context/AuthContext'
 import { useTheme } from '@/context/ThemeContext'
+import { useWallet } from '@/context/WalletContext'
 import {
   HiHome, HiChartBar, HiCash, HiUser, HiLogout,
   HiMenu, HiX, HiStar, HiCurrencyDollar, HiLink, HiBell, HiChat,
@@ -40,6 +41,7 @@ export default function DashboardSidebar({ children }: { children: React.ReactNo
   const pathname = usePathname()
   const { user, logout, isDemo } = useAuth()
   const { theme, toggle } = useTheme()
+  const { balance } = useWallet()
   const isAdmin = user?.role === 'ADMIN'
   const links = isAdmin ? adminLinks : userLinks
 
@@ -50,6 +52,10 @@ export default function DashboardSidebar({ children }: { children: React.ReactNo
       <aside className={`fixed lg:static inset-y-0 left-0 z-50 w-64 bg-white dark:bg-slate-900/95 border-r border-slate-200 dark:border-white/10 transform transition-transform duration-300 ${open ? 'translate-x-0' : '-translate-x-full'} lg:translate-x-0 flex flex-col`}>
         <div className="p-6 border-b border-slate-200 dark:border-white/10">
           <Logo />
+          <div className="mt-3 px-3 py-2 bg-gradient-to-r from-gold-500/10 to-emerald-500/10 dark:from-gold-400/10 dark:to-emerald-400/10 rounded-lg">
+            <p className="text-xs text-slate-500 dark:text-slate-400 font-medium">Wallet</p>
+            <p className="text-sm font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-gold-500 to-emerald-500">${balance.toFixed(2)}</p>
+          </div>
         </div>
 
         <nav className="flex-1 p-4 space-y-1 overflow-y-auto">

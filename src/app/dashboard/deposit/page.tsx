@@ -1,6 +1,8 @@
 'use client'
 
 import { useState } from 'react'
+import { useRouter } from 'next/navigation'
+import { useWallet } from '@/context/WalletContext'
 import { CRYPTO_ADDRESSES } from '@/lib/constants'
 import { FaBitcoin, FaEthereum, FaCoins, FaCheckCircle } from 'react-icons/fa'
 import { SiTether, SiBinance, SiDogecoin, SiLitecoin } from 'react-icons/si'
@@ -17,6 +19,8 @@ const cryptoOptions = [
 ]
 
 export default function DepositPage() {
+  const { addBalance } = useWallet()
+  const router = useRouter()
   const [amount, setAmount] = useState('')
   const [selectedCrypto, setSelectedCrypto] = useState(cryptoOptions[0])
   const [copied, setCopied] = useState(false)
@@ -41,7 +45,8 @@ export default function DepositPage() {
     setTimeout(() => {
       setProcessing(false)
       setDone(true)
-      toast.success('Deposit confirmed! Your wallet has been credited.')
+      addBalance(val)
+      toast.success(`$${val.toFixed(2)} deposited! Your wallet has been credited.`)
     }, 4000)
   }
 
@@ -56,7 +61,7 @@ export default function DepositPage() {
           </div>
           <h2 className="text-xl font-bold text-slate-900 dark:text-white mb-2">Deposit Successful!</h2>
           <p className="text-slate-500 dark:text-slate-400 mb-6">${parseFloat(amount).toFixed(2)} has been credited to your wallet.</p>
-          <a href="/dashboard" className="btn-primary">Back to Dashboard</a>
+              <button onClick={() => router.push('/dashboard')} className="btn-primary">Back to Dashboard</button>
         </div>
       ) : (
         <>

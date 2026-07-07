@@ -46,7 +46,7 @@ src/
 ## Running Locally
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/primeledger.git
+git clone https://github.com/adiiaot/primeledger.git
 cd primeledger
 npm install
 npm run dev
@@ -64,4 +64,4 @@ No database setup needed — the demo runs entirely on mock data.
 
 ## Contact
 
-Built by **[Your Name]** — [your-portfolio-link] — [your-email]
+Built by **AOT AYO** — [https://aot-network-portfolio.vercel.app/] — [aotayom34@gmail.com]

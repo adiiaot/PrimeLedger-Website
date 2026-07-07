@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import './globals.css'
 import { AuthProvider } from '@/context/AuthContext'
 import { ThemeProvider } from '@/context/ThemeContext'
+import { WalletProvider } from '@/context/WalletContext'
 import { Toaster } from 'react-hot-toast'
 
 export const metadata: Metadata = {
@@ -19,7 +20,9 @@ export default function RootLayout({
       <body className="min-h-screen bg-page-light dark:bg-page-dark text-slate-900 dark:text-slate-100 transition-colors duration-200 font-sans antialiased">
         <AuthProvider>
           <ThemeProvider>
-            {children}
+            <WalletProvider>
+              {children}
+            </WalletProvider>
             <Toaster
               position="top-right"
               toastOptions={{
