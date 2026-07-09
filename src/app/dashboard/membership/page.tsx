@@ -4,12 +4,12 @@ import Link from 'next/link'
 import { FaCrown, FaCheckCircle } from 'react-icons/fa'
 
 const plans = [
-  { name: 'Starter', minDeposit: 10, maxDeposit: 799, profit: '5%', duration: '3 days', referralBonus: '5%' },
-  { name: 'Basic', minDeposit: 800, maxDeposit: 4999, profit: '10%', duration: '7 days', referralBonus: '10%' },
-  { name: 'Pro', minDeposit: 5000, maxDeposit: 24999, profit: '15%', duration: '14 days', referralBonus: '15%' },
-  { name: 'Elite', minDeposit: 25000, maxDeposit: 99999, profit: '20%', duration: '21 days', referralBonus: '20%' },
-  { name: 'Mega', minDeposit: 100000, maxDeposit: 499999, profit: '30%', duration: '30 days', referralBonus: '25%' },
-  { name: 'Premium', minDeposit: 500000, maxDeposit: 1000000, profit: '50%', duration: '45 days', referralBonus: '30%' },
+  { name: 'Starter', minDeposit: 100, maxDeposit: 499, profit: '5%', duration: '3 days', referralBonus: '5%' },
+  { name: 'Basic', minDeposit: 500, maxDeposit: 999, profit: '10%', duration: '7 days', referralBonus: '10%' },
+  { name: 'Pro', minDeposit: 1000, maxDeposit: 4999, profit: '15%', duration: '14 days', referralBonus: '15%' },
+  { name: 'Elite', minDeposit: 5000, maxDeposit: 24999, profit: '20%', duration: '21 days', referralBonus: '20%' },
+  { name: 'Mega', minDeposit: 25000, maxDeposit: 99999, profit: '30%', duration: '30 days', referralBonus: '25%' },
+  { name: 'Premium', minDeposit: 100000, maxDeposit: 1000000, profit: '50%', duration: '45 days', referralBonus: '30%' },
 ]
 
 export default function MembershipPage() {

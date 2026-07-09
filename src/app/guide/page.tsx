@@ -42,7 +42,7 @@ const sections = [
     title: 'Investment Plans',
     items: [
       'Browse available plans on the Membership page',
-      'Plans range from Starter ($10) to Premium ($500,000+)',
+      'Plans range from Starter ($100) to Premium ($1,000+)',
       'Higher plans offer better profit rates (5% to 50%)',
       'Select a plan and fund it through the deposit flow',
     ],

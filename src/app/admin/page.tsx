@@ -14,7 +14,7 @@ export default function AdminPage() {
   ]
 
   const recentActivity = [
-    { user: 'Demo User', action: 'Deposited $50', time: '2 min ago', status: 'completed' },
+    { user: 'Demo User', action: 'Deposited $500', time: '2 min ago', status: 'completed' },
     { user: 'John D.', action: 'Withdrawal request $150', time: '1 hour ago', status: 'pending' },
     { user: 'Sarah K.', action: 'Claimed daily reward $30', time: '3 hours ago', status: 'completed' },
     { user: 'Mike T.', action: 'Registered via referral', time: '5 hours ago', status: 'completed' },

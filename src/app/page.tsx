@@ -25,9 +25,9 @@ const steps = [
 ]
 
 const plans = [
-  { name: 'Starter Plan', amount: 30, key: 'starter', desc: 'Perfect for beginners.' },
-  { name: 'Growth Plan', amount: 50, key: 'growth', desc: 'Most popular plan.' },
-  { name: 'Premium Plan', amount: 100, key: 'premium', desc: 'Maximum potential.' },
+  { name: 'Starter Plan', amount: 100, key: 'starter', desc: 'Perfect for beginners.' },
+  { name: 'Growth Plan', amount: 500, key: 'growth', desc: 'Most popular plan.' },
+  { name: 'Premium Plan', amount: 1000, key: 'premium', desc: 'Maximum potential.' },
 ]
 
 export default function HomePage() {
@@ -87,7 +87,7 @@ export default function HomePage() {
                 </Link>
               </div>
               <div className="flex items-center gap-6 sm:gap-8 pt-2 sm:pt-4">
-                <div><span className="text-gold-600 dark:text-gold-400 font-extrabold text-xl sm:text-2xl">$30</span><p className="text-slate-400 text-xs sm:text-sm font-medium">Starting Plan</p></div>
+                <div><span className="text-gold-600 dark:text-gold-400 font-extrabold text-xl sm:text-2xl">$100</span><p className="text-slate-400 text-xs sm:text-sm font-medium">Starting Plan</p></div>
                 <div><span className="text-gold-600 dark:text-gold-400 font-extrabold text-xl sm:text-2xl">$30</span><p className="text-slate-400 text-xs sm:text-sm font-medium">Daily Earnings</p></div>
                 <div><span className="text-gold-600 dark:text-gold-400 font-extrabold text-xl sm:text-2xl">24/7</span><p className="text-slate-400 text-xs sm:text-sm font-medium">Support</p></div>
               </div>

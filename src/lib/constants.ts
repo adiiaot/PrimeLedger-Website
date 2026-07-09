@@ -32,9 +32,9 @@ export interface PlanInfo {
   regularAmount: number
 }
 
-export const PLAN_STARTER: PlanInfo = { key: 'starter', name: 'Starter Plan', amount: 30, regularAmount: 50 }
-export const PLAN_GROWTH: PlanInfo = { key: 'growth', name: 'Growth Plan', amount: 50, regularAmount: 80 }
-export const PLAN_PREMIUM: PlanInfo = { key: 'premium', name: 'Premium Plan', amount: 100, regularAmount: 150 }
-export const PLAN_STARTER_REGULAR: PlanInfo = { key: 'starter', name: 'Starter Plan', amount: 50, regularAmount: 50 }
-export const PLAN_GROWTH_REGULAR: PlanInfo = { key: 'growth', name: 'Growth Plan', amount: 80, regularAmount: 80 }
-export const PLAN_PREMIUM_REGULAR: PlanInfo = { key: 'premium', name: 'Premium Plan', amount: 150, regularAmount: 150 }
+export const PLAN_STARTER: PlanInfo = { key: 'starter', name: 'Starter Plan', amount: 100, regularAmount: 150 }
+export const PLAN_GROWTH: PlanInfo = { key: 'growth', name: 'Growth Plan', amount: 500, regularAmount: 600 }
+export const PLAN_PREMIUM: PlanInfo = { key: 'premium', name: 'Premium Plan', amount: 1000, regularAmount: 1200 }
+export const PLAN_STARTER_REGULAR: PlanInfo = { key: 'starter', name: 'Starter Plan', amount: 150, regularAmount: 150 }
+export const PLAN_GROWTH_REGULAR: PlanInfo = { key: 'growth', name: 'Growth Plan', amount: 600, regularAmount: 600 }
+export const PLAN_PREMIUM_REGULAR: PlanInfo = { key: 'premium', name: 'Premium Plan', amount: 1200, regularAmount: 1200 }
