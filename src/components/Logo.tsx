@@ -6,8 +6,8 @@ export default function Logo({ size = 'md', showText = true }: { size?: 'sm' | '
 
   return (
     <Link href="/" className="flex items-center gap-2 shrink-0">
-      <div className={`${dims} bg-gold-500 rounded-lg flex items-center justify-center shadow-sm`}>
-        <span className="text-white font-bold text-xs">PL</span>
+      <div className={`${dims} rounded-lg overflow-hidden`}>
+        <img src="/primeledgerlogo.png" alt="PrimeLedger" className="w-full h-full object-contain" />
       </div>
       {showText && (
         <span className={`font-sans font-extrabold tracking-tight ${textSize} text-slate-900 dark:text-white`}>
